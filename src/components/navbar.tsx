@@ -3,16 +3,16 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -71,6 +71,16 @@ export function Navbar() {
             ))}
           </div>
 
+          <div className="hidden md:block">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-core-accent hover:bg-core-accentDark px-5 py-2.5 text-sm font-semibold text-white transition-colors"
+            >
+              Let&apos;s Build Together
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
           <button
             className="md:hidden p-2 text-white/70 hover:text-white"
             onClick={() => setIsOpen(!isOpen)}
@@ -102,6 +112,14 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-core-accent hover:bg-core-accentDark px-5 py-3 text-sm font-semibold text-white transition-colors"
+          >
+            Let&apos;s Build Together
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </nav>

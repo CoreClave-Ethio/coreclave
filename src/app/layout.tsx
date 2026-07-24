@@ -10,8 +10,8 @@ const orbitron = Orbitron({
 });
 
 export const metadata = {
-  title: "Coreclave - Premium Software Solutions",
-  description: "Transforming ideas into powerful software solutions. We build the future, one line of code at a time.",
+  title: "CoreClave - Building Core Solutions That Drive Real Impact",
+  description: "We help startups and enterprises build reliable, scalable and high-performance digital products with modern technologies.",
 };
 
 export default function RootLayout({

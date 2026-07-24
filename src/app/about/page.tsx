@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Check,
-  Users,
-  Target,
-  Lightbulb,
-  Heart,
-  Zap,
-} from "lucide-react";
+import { Award, Users, Briefcase, Percent, Target, Lightbulb, ShieldCheck, HeartHandshake } from "lucide-react";
 import { StatsSection } from "@/components/stats-section";
+
+const stats = [
+  { icon: Award, value: "5+", label: "Years Experience" },
+  { icon: Users, value: "20+", label: "Experts" },
+  { icon: Briefcase, value: "30+", label: "Projects" },
+  { icon: Percent, value: "98%", label: "Client Satisfaction" },
+];
 
 const values = [
   {
@@ -23,37 +23,14 @@ const values = [
     description: "We embrace new technologies and creative solutions to solve complex problems.",
   },
   {
-    icon: Heart,
-    title: "Passion",
-    description: "We are passionate about technology and committed to delivering the best results.",
+    icon: ShieldCheck,
+    title: "Integrity",
+    description: "We do what we say we'll do, and communicate honestly every step of the way.",
   },
   {
-    icon: Zap,
-    title: "Efficiency",
-    description: "We optimize our processes to deliver high-quality solutions on time and on budget.",
-  },
-];
-
-const team = [
-  {
-    name: "Alex Johnson",
-    role: "CEO & Founder",
-    bio: "Visionary leader with 15+ years in software engineering.",
-  },
-  {
-    name: "Sarah Chen",
-    role: "CTO",
-    bio: "Expert in cloud architecture and scalable systems.",
-  },
-  {
-    name: "Michael Brown",
-    role: "Lead Designer",
-    bio: "Award-winning designer specializing in UX/UI.",
-  },
-  {
-    name: "Emily Davis",
-    role: "Head of Engineering",
-    bio: "Full-stack expert with a passion for clean code.",
+    icon: HeartHandshake,
+    title: "Collaboration",
+    description: "We work closely with our clients as true partners, not just vendors.",
   },
 ];
 
@@ -70,14 +47,63 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              About <span className="text-core-accent">Coreclave</span>
+              About <span className="text-core-accent">CoreClave</span>
             </h1>
             <p className="text-white/60 max-w-2xl mx-auto text-lg">
-              We are a passionate team of software engineers, designers, and innovators dedicated to creating exceptional digital experiences.
+              We are a team of engineers, designers and innovators passionate about building
+              software that makes a difference.
             </p>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
+      <StatsSection stats={stats} />
+
+      <section className="py-24">
+        <div className="section-padding mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-2xl overflow-hidden border border-core-blue h-[420px] sm:h-[480px]"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0d1530] via-[#0A0C1B] to-[#0A0C1B]" />
+            <div
+              className="absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, #2563eb 1px, transparent 1px), linear-gradient(to bottom, #2563eb 1px, transparent 1px)",
+                backgroundSize: "48px 48px",
+              }}
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_30%_40%,rgba(37,99,235,0.25),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_50%_at_80%_70%,rgba(6,182,212,0.15),transparent)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+            <div className="relative h-full flex items-end p-10 sm:p-14">
+              <div>
+                {["Build.", "Innovate.", "Create.", "Impact."].map((word, i) => (
+                  <motion.div
+                    key={word}
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="text-4xl sm:text-6xl font-bold text-white leading-[1.05] tracking-tight"
+                  >
+                    {word}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-24 border-t border-core-blue">
+        <div className="section-padding mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-16">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -85,122 +111,42 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
-              <p className="text-white/60 mb-6 leading-relaxed">
-                At Coreclave, we believe in the power of technology to transform businesses and improve lives. Our mission is to deliver cutting-edge software solutions that drive growth, efficiency, and innovation for our clients.
+              <p className="text-white/60 mb-4 leading-relaxed">
+                To empower businesses and startups with innovative software solutions that drive
+                growth, efficiency and meaningful impact.
               </p>
-              <p className="text-white/60 mb-8 leading-relaxed">
-                Founded in 2014, we have grown from a small team of developers to a full-service software company serving clients across the globe. Our diverse team brings together expertise in web development, mobile apps, cloud solutions, and more.
+              <p className="text-white/60 leading-relaxed">
+                We believe technology should be a force multiplier for the businesses we work
+                with — reliable, scalable, and built around real outcomes rather than trends.
               </p>
-              <div className="space-y-3">
-                {["10+ Years of Experience", "500+ Projects Completed", "50+ Happy Clients", "24/7 Support"].map(
-                  (item) => (
-                    <div key={item} className="flex items-center gap-3 text-sm text-white/70">
-                      <div className="w-5 h-5 rounded-full bg-core-accent/20 flex items-center justify-center flex-shrink-0">
-                        <Check className="w-3 h-3 text-core-accent" />
-                      </div>
-                      {item}
-                    </div>
-                  )
-                )}
-              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 p-8">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-4">
-                    <div className="h-40 rounded-xl bg-gradient-to-br from-core-accent/20 to-core-cyan/10 flex items-center justify-center">
-                      <Users className="w-12 h-12 text-core-accent" />
+              <h2 className="text-3xl font-bold text-white mb-6">Our Values</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {values.map((value, i) => (
+                  <motion.div
+                    key={value.title}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+                    className="p-5 rounded-xl bg-core-navy border border-core-blue hover:border-core-accent/40 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-core-accent/10 border border-core-accent/20 flex items-center justify-center mb-3">
+                      <value.icon className="w-5 h-5 text-core-accent" />
                     </div>
-                    <div className="h-28 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                      <span className="text-3xl font-bold text-white/80">50+</span>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="h-28 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                      <span className="text-3xl font-bold text-white/80">500+</span>
-                    </div>
-                    <div className="h-40 rounded-xl bg-gradient-to-br from-core-cyan/20 to-core-accent/10 flex items-center justify-center">
-                      <Zap className="w-12 h-12 text-core-cyan" />
-                    </div>
-                  </div>
-                </div>
+                    <h3 className="text-sm font-semibold text-white mb-1">{value.title}</h3>
+                    <p className="text-xs text-white/50 leading-relaxed">{value.description}</p>
+                  </motion.div>
+                ))}
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-core-accent/20 rounded-full blur-2xl" />
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <StatsSection />
-
-      <section className="py-24 border-t border-white/5">
-        <div className="section-padding mx-auto max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Our <span className="text-core-accent">Values</span>
-            </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
-              The principles that guide everything we do.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, i) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-core-accent/30 transition-colors"
-              >
-                <div className="w-12 h-12 rounded-xl bg-core-accent/10 border border-core-accent/20 flex items-center justify-center mb-4">
-                  <value.icon className="w-6 h-6 text-core-accent" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
-                <p className="text-sm text-white/60">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 border-t border-white/5">
-        <div className="section-padding mx-auto max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Meet the <span className="text-core-accent">Team</span>
-            </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
-              The talented people behind Coreclave.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 text-center hover:border-core-accent/30 transition-colors"
-              >
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-core-accent/20 to-core-cyan/20 flex items-center justify-center mx-auto mb-4 border border-white/10">
-                  <span className="text-2xl font-bold text-white">{member.name[0]}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-1">{member.name}</h3>
-                <p className="text-sm text-core-accent mb-2">{member.role}</p>
-                <p className="text-sm text-white/50">{member.bio}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

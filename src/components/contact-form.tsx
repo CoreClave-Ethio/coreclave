@@ -12,10 +12,9 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
-    subject: "",
+    company: "",
     message: "",
   });
 
@@ -25,16 +24,16 @@ export function ContactForm() {
 
     const supabase = createClient();
     await supabase.from("contacts").insert({
-      first_name: formData.firstName,
-      last_name: formData.lastName,
+      first_name: formData.name,
+      last_name: "",
       email: formData.email,
-      subject: formData.subject,
+      subject: formData.company || "General Inquiry",
       message: formData.message,
     });
 
     setIsSubmitting(false);
     setIsSubmitted(true);
-    setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", company: "", message: "" });
   };
 
   if (isSubmitted) {
@@ -56,28 +55,17 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className="text-sm font-medium text-white/80 mb-2 block">First Name</label>
-          <Input
-            required
-            value={formData.firstName}
-            onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-            placeholder="John"
-          />
-        </div>
-        <div>
-          <label className="text-sm font-medium text-white/80 mb-2 block">Last Name</label>
-          <Input
-            required
-            value={formData.lastName}
-            onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-            placeholder="Doe"
-          />
-        </div>
+      <div>
+        <label className="text-sm font-medium text-white/80 mb-2 block">Your Name</label>
+        <Input
+          required
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          placeholder="John Doe"
+        />
       </div>
       <div>
-        <label className="text-sm font-medium text-white/80 mb-2 block">Email</label>
+        <label className="text-sm font-medium text-white/80 mb-2 block">Email Address</label>
         <Input
           required
           type="email"
@@ -87,16 +75,17 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label className="text-sm font-medium text-white/80 mb-2 block">Subject</label>
+        <label className="text-sm font-medium text-white/80 mb-2 block">
+          Company <span className="text-white/40">(Optional)</span>
+        </label>
         <Input
-          required
-          value={formData.subject}
-          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-          placeholder="Project Inquiry"
+          value={formData.company}
+          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+          placeholder="Your Company"
         />
       </div>
       <div>
-        <label className="text-sm font-medium text-white/80 mb-2 block">Message</label>
+        <label className="text-sm font-medium text-white/80 mb-2 block">Your Message</label>
         <Textarea
           required
           rows={5}
@@ -105,7 +94,7 @@ export function ContactForm() {
           placeholder="Tell us about your project..."
         />
       </div>
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
+      <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
         <Send className="w-4 h-4 mr-2" />
         {isSubmitting ? "Sending..." : "Send Message"}
       </Button>

@@ -1,20 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Users, Award, Clock } from "lucide-react";
+import { Calendar, Users, Award, Clock, LucideIcon } from "lucide-react";
 
-const stats = [
+export interface Stat {
+  icon: LucideIcon;
+  value: string;
+  label: string;
+}
+
+const defaultStats: Stat[] = [
   { icon: Calendar, value: "10+", label: "Years of Experience" },
   { icon: Users, value: "500+", label: "Projects Completed" },
   { icon: Award, value: "50+", label: "Happy Clients" },
   { icon: Clock, value: "24/7", label: "Support" },
 ];
 
-export function StatsSection() {
+export function StatsSection({ stats = defaultStats }: { stats?: Stat[] }) {
   return (
-    <section className="py-16 relative border-y border-white/5">
+    <section className="py-16 relative border-y border-core-blue">
       <div className="absolute inset-0 bg-gradient-to-r from-core-accent/5 via-transparent to-core-cyan/5" />
-      
+
       <div className="section-padding mx-auto max-w-7xl relative">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, i) => (

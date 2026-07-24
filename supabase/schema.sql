@@ -89,7 +89,7 @@ INSERT INTO settings (key, value) VALUES
   ('site_name', 'Coreclave'),
   ('tagline', 'Premium Software Solutions'),
   ('email', 'hello@coreclave.com'),
-  ('phone', '+251 (996) 995-878'),
+  ('phone', '+251 996 995 878'),
   ('address', 'Arada Sub City, Addis Ababa, Ethiopia')
 ON CONFLICT (key) DO NOTHING;
 

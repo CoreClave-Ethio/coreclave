@@ -105,7 +105,7 @@ export default function AdminContactsPage() {
               <TableRow>
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>Subject</TableHead>
+                <TableHead>Company</TableHead>
                 <TableHead>Date</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -115,7 +115,7 @@ export default function AdminContactsPage() {
               {contacts.map((contact) => (
                 <TableRow key={contact.id}>
                   <TableCell className="font-medium text-white">
-                    {contact.first_name} {contact.last_name}
+                    {contact.first_name}
                   </TableCell>
                   <TableCell className="text-white/60">{contact.email}</TableCell>
                   <TableCell className="text-white/60">{contact.subject}</TableCell>
