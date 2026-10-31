@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
+import { ProductShowcase } from "@/components/product-showcase";
 import { TestimonialsSection } from "@/components/testimonials-section";
 
 export default function PortfolioPage() {
@@ -35,6 +36,8 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
+
+      <ProductShowcase />
 
       <TestimonialsSection />
 

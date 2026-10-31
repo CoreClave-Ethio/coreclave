@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="42" x2="1080" y2="558" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#142B35"/>
+      <stop offset="1" stop-color="#235B58"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="248" y1="132" x2="437" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4C67A"/>
+      <stop offset="1" stop-color="#D9944D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" rx="24" fill="url(#bg)"/>
+  <circle cx="1000" cy="92" r="180" fill="#fff" fill-opacity=".035"/>
+  <circle cx="1014" cy="513" r="240" fill="#fff" fill-opacity=".035"/>
+  <rect x="82" y="78" width="1036" height="444" rx="24" fill="#F9F7F2"/>
+  <rect x="82" y="78" width="262" height="444" rx="24" fill="#192D33"/>
+  <path d="M320 78h24v444h-24z" fill="#192D33"/>
+  <circle cx="213" cy="154" r="35" fill="url(#accent)"/>
+  <path d="M200 142a15 15 0 1 1 26 11l-21 21m21-32a15 15 0 1 1-26 11l21 21m-20-8 18-18" stroke="#192D33" stroke-width="5" stroke-linecap="round"/>
+  <text x="213" y="220" fill="#F9F7F2" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle" letter-spacing="3">BARBER STUDIO</text>
+  <rect x="116" y="265" width="194" height="45" rx="12" fill="#F4C67A"/>
+  <circle cx="143" cy="287" r="6" fill="#192D33"/>
+  <text x="163" y="294" fill="#192D33" font-family="Arial, sans-serif" font-size="15" font-weight="700">Appointments</text>
+  <text x="163" y="358" fill="#D5DEE0" font-family="Arial, sans-serif" font-size="15">AI Receptionist</text>
+  <text x="163" y="410" fill="#D5DEE0" font-family="Arial, sans-serif" font-size="15">Client CRM</text>
+  <text x="390" y="143" fill="#183037" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">YOUR NEXT CUT STARTS HERE</text>
+  <text x="390" y="187" fill="#183037" font-family="Arial, sans-serif" font-size="31" font-weight="700">Book your appointment</text>
+  <rect x="390" y="219" width="664" height="78" rx="14" fill="#fff" stroke="#E7E3DA" stroke-width="2"/>
+  <circle cx="433" cy="258" r="19" fill="#E7F0EB"/>
+  <path d="M424 259h18m-9-9v18" stroke="#397365" stroke-width="3" stroke-linecap="round"/>
+  <text x="471" y="253" fill="#183037" font-family="Arial, sans-serif" font-size="14" font-weight="700">Choose a service</text>
+  <text x="471" y="276" fill="#748184" font-family="Arial, sans-serif" font-size="13">Classic cut · Beard trim · Style consultation</text>
+  <text x="390" y="343" fill="#183037" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1">AVAILABLE TIMES</text>
+  <rect x="390" y="367" width="144" height="52" rx="12" fill="#fff" stroke="#DADFD9" stroke-width="2"/>
+  <rect x="551" y="367" width="144" height="52" rx="12" fill="#fff" stroke="#DADFD9" stroke-width="2"/>
+  <rect x="712" y="367" width="144" height="52" rx="12" fill="#fff" stroke="#DADFD9" stroke-width="2"/>
+  <rect x="873" y="367" width="181" height="52" rx="12" fill="#397365"/>
+  <text x="462" y="399" fill="#183037" font-family="Arial, sans-serif" font-size="15" text-anchor="middle">10:30 AM</text>
+  <text x="623" y="399" fill="#183037" font-family="Arial, sans-serif" font-size="15" text-anchor="middle">11:45 AM</text>
+  <text x="784" y="399" fill="#183037" font-family="Arial, sans-serif" font-size="15" text-anchor="middle">1:00 PM</text>
+  <text x="963" y="399" fill="#fff" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Book a visit</text>
+</svg>
